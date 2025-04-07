@@ -120,7 +120,7 @@ class RTFNet(nn.Module):
         if verbose: print("rgb.size() after bn1: ", rgb.size())  # (240, 320)
         rgb = self.encoder_rgb_relu(rgb)
         if verbose: print("rgb.size() after relu: ", rgb.size())  # (240, 320)
-
+        
         thermal = self.encoder_thermal_conv1(thermal)
         if verbose: print("thermal.size() after conv1: ", thermal.size())  # (240, 320)
         thermal = self.encoder_thermal_bn1(thermal)

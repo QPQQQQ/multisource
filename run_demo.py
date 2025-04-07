@@ -33,8 +33,8 @@ if __name__ == '__main__':
     args.gpu=-1
     os.chmod("./runs", stat.S_IRWXO)
     model_dir = os.path.join(args.model_dir, args.weight_name)
-    if os.path.exists(model_dir) is False:
-        sys.exit("the %s does not exit." %(model_dir))
+    # if os.path.exists(model_dir) is False:
+    #     sys.exit("the %s does not exit." %(model_dir))
     model_file = os.path.join(model_dir, args.file_name)
 
 
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     model = eval(args.model_name)(n_class=args.n_class)
     model = model.to('cpu')
 
-    pretrained_weight = torch.load(model_file, map_location='cpu', weights_only=True)
+    pretrained_weight = torch.load('/Users/qiaopeng/Desktop/多源信号/多模态/RTFNet-master/weights_backup/RTFNet_152/final.pth', map_location='cpu', weights_only=True)
     own_state = model.state_dict()
     for name, param in pretrained_weight.items():
         if name not in own_state:
