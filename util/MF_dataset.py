@@ -4,7 +4,8 @@
 import os, torch
 from torch.utils.data.dataset import Dataset
 import numpy as np
-import PIL
+import PIL, PIL.Image
+
 
 class MF_dataset(Dataset):
 
